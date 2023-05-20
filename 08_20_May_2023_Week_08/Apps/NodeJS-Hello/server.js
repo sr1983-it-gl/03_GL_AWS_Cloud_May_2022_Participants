@@ -1,19 +1,30 @@
 'use strict';
 
 const express = require('express');
+const app = express();
+
 require("dotenv").config();
 const path = require('path');
+
+const os = require('os');
+
+const networkInterfaces = os.networkInterfaces();
+console.log(networkInterfaces);
+
+app.set("view engine", "ejs");
 
 // Constants
 const PORT = process.env.PORT || 8080;
 const HOST = '0.0.0.0';
 
 // App
-const app = express();
 app.get('/', (req, res) => {
 
-  res.sendFile(path.join(__dirname, '/index.html'));  
-});
+  res.render("index", {
+    server_ip: JSON.stringify(networkInterfaces)
+  }
+)});
+
 
 app.listen(PORT, HOST, () => {
   console.log(`Running on http://${HOST}:${PORT}`);
