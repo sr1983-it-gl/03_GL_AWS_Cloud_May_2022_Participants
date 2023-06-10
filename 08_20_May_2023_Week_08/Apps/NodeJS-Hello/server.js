@@ -9,7 +9,7 @@ const path = require('path');
 const os = require('os');
 
 const networkInterfaces = os.networkInterfaces();
-console.log(networkInterfaces);
+// console.log(networkInterfaces);
 
 app.set("view engine", "ejs");
 
@@ -24,6 +24,13 @@ app.get('/', (req, res) => {
     server_ip: JSON.stringify(networkInterfaces)
   }
 )});
+
+// app.get('/test', (req, res) => {
+
+//   res.json({message: "test message"});
+
+// });
+
 
 
 app.listen(PORT, HOST, () => {

@@ -1,0 +1,25 @@
+version: 0.2
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: latest
+        commands:
+            - echo "debug - install phase"
+    pre_build:
+        commands: 
+            - echo "debug - pre-build phase"
+    build:
+        commands:
+            - echo "debug - build phase"
+            - echo "debug - a good place to run the actual builds"
+            - echo "debug - a good place to run test cases, generate test-reports"
+            - if [ ! -f package.json ]; then echo "package.json not found!"; else echo "package.json found"; fi
+            - echo $?
+            - if [ ! -f package.json ]; then exit 1; else exit 0; fi
+            - echo $?
+    post_build:
+        commands:
+            - echo "debug - in post build phase"
+            - echo "debug - to identify and to generate output artifacts"
+            
