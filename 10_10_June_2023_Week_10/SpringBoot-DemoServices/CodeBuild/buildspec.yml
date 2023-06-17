@@ -1,0 +1,29 @@
+version: 0.2
+ 
+phases:
+  install:
+    commands:
+      - wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+      - sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
+      - sudo apt-get update -y
+      - sudo apt-get install -y java-17-amazon-corretto-jdk
+  pre_build:
+    commands:
+      - echo PreBuild Phase Started
+      - mvn clean install
+  build:
+    commands:
+      - echo Build Phase Started
+  post_build:
+    commands:
+      - echo PostBuild Phase Started
+      - mvn package
+      - APP_NAME=aws-services
+      - APP_VERSION=1.0
+      - APP_FULL_NAME=$APP_NAME-$APP_VERSION.jar
+      - echo $APP_FULL_NAME
+      - mv target/$APP_FULL_NAME $APP_FULL_NAME
+artifacts:
+  files:
+    - $APP_FULL_NAME
+    
