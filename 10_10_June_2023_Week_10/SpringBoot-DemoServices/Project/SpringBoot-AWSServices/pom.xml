@@ -65,4 +65,12 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+	  <repository>
+	    <id>greatlearningdomain-JavaRepository</id>
+	    <name>greatlearningdomain-JavaRepository</name>
+	    <url>https://greatlearningdomain-587106660195.d.codeartifact.us-east-1.amazonaws.com/maven/JavaRepository/</url>
+	  </repository>
+	</distributionManagement>
+
 </project>
