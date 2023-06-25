@@ -4,3 +4,7 @@ _Environments/
 /.metadata/
 *.bat
 *.bat/
+.terraform
+.terraform/**
+terraform.*
+.terraform.lock.hcl

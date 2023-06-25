@@ -2,3 +2,9 @@ node_modules
 _Environments
 _Environments/
 /.metadata/
+*.bat
+*.bat/
+.terraform
+.terraform/**
+terraform.*
+terraform.*
